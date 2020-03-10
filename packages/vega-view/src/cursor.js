@@ -32,16 +32,17 @@ export default function(view) {
       user = user.user;
     }
 
-    setCursor(user && user !== Default ? user : (item || user));
+    setCursor(view, user && user !== Default ? user : (item || user));
 
     return item;
   }, {cursor: cursor});
 }
 
-function setCursor(cursor) {
-  // set cursor on document body
-  // this ensures cursor applies even if dragging out of view
-  if (typeof document !== 'undefined' && document.body) {
-    document.body.style.cursor = cursor;
-  }
+function setCursor(view, cursor) {
+    const container = view.container()
+    if(container){
+     try{
+    container.style.cursor = cursor;
+    // z-index?
+    }
 }
