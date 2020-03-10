@@ -45,4 +45,5 @@ function setCursor(view, cursor) {
     container.style.cursor = cursor;
     // z-index?
     }
+    catch{}
 }
